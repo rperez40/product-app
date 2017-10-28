@@ -1,21 +1,59 @@
+
 <ion-header>
-  <ion-navbar>
-  <ion-title>Login</ion-title>
-  </ion-navbar>
+  
+    <ion-navbar>
+      <ion-title>login</ion-title>
+    </ion-navbar>
+  
   </ion-header>
-   
-  <ion-content padding>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
-  <ion-item>
-  <ion-label floating>User</ion-label>
-  <ion-input [formControl]="username" type="text"></ion-input>
-  </ion-item>
-  <ion-item>
-  <ion-label floating>Password</ion-label>
-  <ion-input [formControl]="password" type="password"></ion-input>
-  </ion-item>
-  <ion-item [hidden]="!errorMessage"><label>{{errorMessage}}</label></ion-item>
-  </form>
-  <div padding>
-  <button primary block (click)="login()" [disabled]="!loginForm.valid">Sign In</button></div>
+  
+  <ion-content>
+  
+  <ion-list>
+      <form>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input 
+            [(ngModel)]="user.email" 
+            name="email" 
+            type="text" 
+            autocapitalize="off" 
+            required
+          >
+          </ion-input>
+        </ion-item>
+       
+        <ion-item>
+          <ion-label floating>Contraseña</ion-label>
+          <ion-input 
+            [(ngModel)]="user.password" 
+            name="password" 
+            type="password" 
+            required
+          >
+          </ion-input>
+        </ion-item>
+        <div padding>
+          <button 
+              ion-button 
+              (click)="login()" 
+              type="submit" 
+              color="primary" 
+              block
+          >
+            Login
+          </button> 
+      
+          <button 
+            ion-button 
+            (click)="signin()" 
+            type="submit" 
+            color="secondary" 
+            block
+          >
+            Dar de alta
+          </button>
+        </div>
+      </form>
+    </ion-list>
   </ion-content>
